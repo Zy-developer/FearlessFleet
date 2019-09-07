@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "LogoAni",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 4.033333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "b9376baf-315c-4443-a85a-56908f3b9f72"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "693bb01f-2f0e-4a01-b93d-b692a456b9b0"
+            }
+          },
+          {
+            "frame": 2.0166666666666666,
+            "value": {
+              "__uuid__": "b9376baf-315c-4443-a85a-56908f3b9f72"
+            }
+          },
+          {
+            "frame": 3.0166666666666666,
+            "value": {
+              "__uuid__": "693bb01f-2f0e-4a01-b93d-b692a456b9b0"
+            }
+          },
+          {
+            "frame": 4.016666666666667,
+            "value": {
+              "__uuid__": "693bb01f-2f0e-4a01-b93d-b692a456b9b0"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
