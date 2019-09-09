@@ -52,7 +52,7 @@ export default class SpriteFrameAnimate extends cc.Component {
         // 播放动画.
         animate.play();
         
-        cc.log(this.spriteFrames, clip, animate,);
+        // cc.log(this.spriteFrames, clip, animate,);
     }
 
     // update (dt) {}

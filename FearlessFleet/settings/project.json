@@ -1,35 +1,63 @@
 {
-  "start-scene": "current",
-  "group-list": [
-    "default"
-  ],
+  "assets-sort-type": "name",
   "collision-matrix": [
     [
+      false
+    ],
+    [
+      false,
+      false,
+      true,
       true
+    ],
+    [
+      false,
+      true,
+      false
+    ],
+    [
+      false,
+      true,
+      false,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      true,
+      false
     ]
   ],
-  "excluded-modules": [],
-  "last-module-event-record-time": 0,
-  "design-resolution-width": 960,
   "design-resolution-height": 640,
-  "fit-width": true,
-  "fit-height": false,
-  "use-project-simulator-setting": false,
-  "simulator-orientation": false,
-  "use-customize-simulator": false,
-  "simulator-resolution": {
-    "width": 750,
-    "height": 1334
-  },
-  "assets-sort-type": "name",
+  "design-resolution-width": 960,
+  "excluded-modules": [],
   "facebook": {
-    "enable": false,
     "appID": "",
-    "live": {
-      "enable": false
-    },
     "audience": {
       "enable": false
+    },
+    "enable": false,
+    "live": {
+      "enable": false
     }
-  }
+  },
+  "fit-height": false,
+  "fit-width": true,
+  "group-list": [
+    "default",
+    "Enemy",
+    "Bullet",
+    "Fighter",
+    "EnemyBullet"
+  ],
+  "last-module-event-record-time": 0,
+  "simulator-orientation": false,
+  "simulator-resolution": {
+    "height": 1334,
+    "width": 750
+  },
+  "use-customize-simulator": false,
+  "use-project-simulator-setting": false
 }

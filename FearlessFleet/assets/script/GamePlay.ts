@@ -27,7 +27,10 @@ export default class GamePlay extends cc.Component {
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {}
+    onLoad () {
+        const manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+    }
 
     start () {
         this.onStartAnimate();

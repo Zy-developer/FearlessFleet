@@ -26,5 +26,9 @@ export default class AircraftBullet extends cc.Component {
         }
     }
 
+    onCollisionEnter(other: cc.Collider, self: cc.Collider) {
+        this.node.destroy();
+    }
+
 }
 

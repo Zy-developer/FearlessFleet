@@ -34,7 +34,7 @@ export default class MainMenu extends cc.Component {
     // onLoad () {}
 
     start () {
-        cc.log("--- MainMenu.start() ---");
+        // cc.log("--- MainMenu.start() ---");
         cc.audioEngine.playMusic(this.bgAudio, true);
         // 绑定按钮事件.
         this.rushLevelButton.node.on(cc.Node.EventType.TOUCH_END, this.onRushLevelAction, this);

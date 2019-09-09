@@ -10,6 +10,7 @@
 
 const {ccclass, property} = cc._decorator;
 
+/** 游戏界面工具栏. */
 @ccclass
 export default class GameToolBar extends cc.Component {
 

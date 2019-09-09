@@ -17,4 +17,9 @@ export default class EnemyBullet extends cc.Component {
             this.node.destroy();
         }
     }
+
+    onCollisionEnter (other: cc.Collider, self: cc.Collider) {
+        this.node.destroy();
+    }
+
 }

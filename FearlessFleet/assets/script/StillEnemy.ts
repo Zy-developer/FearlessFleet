@@ -17,6 +17,9 @@ export default class StillEnemy extends cc.Component {
     @property({type: cc.Prefab, tooltip: "子弹."})
     enemyBullet: cc.Prefab = null;
 
+    @property({type: cc.AudioClip, tooltip: "死亡音效."})
+    dieEffect: cc.AudioClip = null;
+
     onLoad () {
         this.setPoint();
         this.onVerticalMove();
@@ -62,4 +65,19 @@ export default class StillEnemy extends cc.Component {
     }
 
     // update (dt) {}
+
+    onCollisionEnter(other: cc.Collider, self: cc.Collider) {
+        this.unschedule(this.onEmissionBullet.bind(this));
+        
+        const animate: cc.Animation = this.getComponent(cc.Animation);
+        const aniState: cc.AnimationState = animate.getAnimationState("EnemyDieAni");
+        if (aniState.isPlaying == false) {
+            animate.play();
+            cc.audioEngine.playEffect(this.dieEffect, false);
+            animate.on("finished", function () {
+                this.node.destroy();
+            }, this);
+        }
+    }
+
 }

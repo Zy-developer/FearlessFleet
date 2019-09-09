@@ -24,10 +24,16 @@
       },
       {
         "__id__": 3
+      },
+      {
+        "__id__": 4
+      },
+      {
+        "__id__": 5
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 6
     },
     "_opacity": 255,
     "_color": {
@@ -70,7 +76,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "groupIndex": 0,
+    "groupIndex": 1,
     "_id": ""
   },
   {
@@ -109,11 +115,48 @@
       "__id__": 1
     },
     "_enabled": true,
-    "gamePlay": null,
     "enemyBullet": {
       "__uuid__": "a7fbed0f-0ddc-440b-9ad5-b5746258db22"
     },
-    "bulletArray": [],
+    "dieEffect": {
+      "__uuid__": "e9339b40-6a86-49a3-acc8-4d0dcd7677b2"
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_defaultClip": {
+      "__uuid__": "cfd79a56-625f-4272-9cb8-ed31ed78f2a2"
+    },
+    "_clips": [
+      {
+        "__uuid__": "cfd79a56-625f-4272-9cb8-ed31ed78f2a2"
+      }
+    ],
+    "playOnLoad": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CircleCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "tag": 1,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_radius": 100,
     "_id": ""
   },
   {

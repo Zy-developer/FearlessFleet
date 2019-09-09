@@ -16,6 +16,12 @@ export default class Fighter extends cc.Component {
     @property({type: cc.Prefab, tooltip: "主角的子弹."})
     bullet: cc.Prefab = null;
 
+    @property({type: cc.ProgressBar, tooltip: "血量条."})
+    booldBar: cc.ProgressBar = null;
+
+    @property({type: cc.AudioClip, tooltip: "死亡背景音效."})
+    dieEffect: cc.AudioClip = null;
+
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
@@ -63,7 +69,38 @@ export default class Fighter extends cc.Component {
         bullet.x = this.node.x;
         bullet.y = this.node.y + this.node.height + 50;
     }
-    
 
     // update (dt) {}
+
+    /** 碰撞回调. */
+    onCollisionEnter (other: cc.Collider, self: cc.Collider) {
+        if (other.tag == 0) {
+            // 碰撞子弹, 扣血.
+            cc.log(this.booldBar.progress);
+            if (this.booldBar.progress < 0.2) {
+                this.onGameOver();
+            } else {
+                this.booldBar.progress -= .1;
+            }
+        } else {
+            // 碰撞敌机, 游戏结束.
+            this.booldBar.progress = 0;
+            this.onGameOver();
+        }
+    }
+
+    /** 死亡, 游戏结束. */
+    onGameOver () {
+        cc.audioEngine.playEffect(this.dieEffect, false);
+        
+        this.unschedule(this.onAircraftBullet);
+
+        const animation: cc.Animation = this.getComponent(cc.Animation);
+        animation.play();
+        animation.on("finished", function () {
+            cc.audioEngine.stopMusic();
+            cc.director.loadScene("MainMenu");
+        }, this);
+    }
+
 }
