@@ -1,3 +1,5 @@
+import DataCenter from "./DataCenter";
+
 // Learn TypeScript:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
@@ -20,10 +22,13 @@ export default class StillEnemy extends cc.Component {
     @property({type: cc.AudioClip, tooltip: "死亡音效."})
     dieEffect: cc.AudioClip = null;
 
+    private fnFire;
+
     onLoad () {
         this.setPoint();
         this.onVerticalMove();
-        this.schedule(this.onEmissionBullet.bind(this), 3);
+        this.fnFire = this.onEmissionBullet.bind(this);
+        this.schedule(this.fnFire, 3);
     }
 
     start () {
@@ -67,8 +72,11 @@ export default class StillEnemy extends cc.Component {
     // update (dt) {}
 
     onCollisionEnter(other: cc.Collider, self: cc.Collider) {
-        this.unschedule(this.onEmissionBullet.bind(this));
-        
+        this.unschedule(this.fnFire);
+
+        self.enabled = false;
+        DataCenter.score++;
+
         const animate: cc.Animation = this.getComponent(cc.Animation);
         const aniState: cc.AnimationState = animate.getAnimationState("EnemyDieAni");
         if (aniState.isPlaying == false) {

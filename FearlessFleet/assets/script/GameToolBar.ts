@@ -1,3 +1,6 @@
+import DataCenter from "./DataCenter";
+
+
 // Learn TypeScript:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
@@ -35,10 +38,11 @@ export default class GameToolBar extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+
+        cc.systemEvent.on(DataCenter.eventType.CHANGE_SCORE, this.onAddScoreAction, this);
     }
 
     start () {
-        this.node.zIndex = 1000;
         // 绑定按钮点击事件.
         this.homeButton.node.on(cc.Node.EventType.TOUCH_END, this.onHomeButtonAction, this);
         this.gameState.node.on(cc.Node.EventType.TOUCH_END, this.onGamePauseAndResumeAction, this);
@@ -101,9 +105,12 @@ export default class GameToolBar extends cc.Component {
     }
     
     /** 增加分数. */
-    onAddScoreAction (number) {
-        this.score += number;
-        this.scoreLabel.string = this.score + "";
+    onAddScoreAction (data) {
+        this.scoreLabel.string = data + "";
+    }
+
+    onDestroy () {
+        cc.systemEvent.off(DataCenter.eventType.CHANGE_SCORE, this.onAddScoreAction, this);
     }
 
     // update (dt) {}

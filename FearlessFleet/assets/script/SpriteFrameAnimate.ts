@@ -46,13 +46,13 @@ export default class SpriteFrameAnimate extends cc.Component {
         // 获取/创建动画组件.
         const animate = this.getComponent(cc.Animation) || this.addComponent(cc.Animation);
         // 添加动画剪辑.
-        animate.addClip(clip, "SpriteFrame");
+        animate.addClip(clip, "def");
         // 设置默认动画剪辑.
         animate.defaultClip = clip;
         // 播放动画.
-        animate.play();
+        animate.play('def');
         
-        // cc.log(this.spriteFrames, clip, animate,);
+        cc.log(this.spriteFrames, clip, animate);
     }
 
     // update (dt) {}

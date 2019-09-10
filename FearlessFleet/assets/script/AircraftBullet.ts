@@ -11,6 +11,10 @@ export default class AircraftBullet extends cc.Component {
     @property({type: [cc.SpriteFrame], tooltip: "子弹等级纹理."})
     frameArray: cc.SpriteFrame[] = [];
 
+    onLoad () {
+        this.node.zIndex = 11;
+    }
+
     start () {
         this.node.runAction(cc.moveBy(1, 0, 450).repeatForever());
     }

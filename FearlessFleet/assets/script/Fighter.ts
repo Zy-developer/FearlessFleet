@@ -1,3 +1,5 @@
+import DataCenter from "./DataCenter";
+
 // Learn TypeScript:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
@@ -24,8 +26,11 @@ export default class Fighter extends cc.Component {
 
     // LIFE-CYCLE CALLBACKS:
 
+    private fnFire;
+
     onLoad () {
-        this.schedule(this.onAircraftBullet.bind(this), .8);
+        this.fnFire = this.onAircraftBullet.bind(this);
+        this.schedule(this.fnFire, .8);
     }
 
     start () {
@@ -39,8 +44,8 @@ export default class Fighter extends cc.Component {
     
     private onTouchMoved (event: cc.Event.EventTouch) {
         const size = cc.view.getVisibleSize();
-        const minX = this.node.width / 2;
-        const maxX = size.width - minX;
+        const minX = -(size.width - this.node.width) / 2;
+        const maxX = (size.width - this.node.width) / 2;
         let x = this.node.x + event.getDeltaX();
         if (x < minX) {
             x = minX;
@@ -49,8 +54,8 @@ export default class Fighter extends cc.Component {
         }
         this.node.x = x;
 
-        const minY = this.node.height / 2;
-        const maxY = size.height - minY - 80;
+        const minY = -(size.height - this.node.height) / 2;
+        const maxY = (size.height - this.node.height) / 2 - 80;
         let y = this.node.y + event.getDeltaY();
         if (y < minY) {
             y = minY;
@@ -66,6 +71,7 @@ export default class Fighter extends cc.Component {
     private onAircraftBullet () {
         const bullet: cc.Node = cc.instantiate(this.bullet);
         bullet.parent = this.node.parent;
+        bullet.zIndex = 100;
         bullet.x = this.node.x;
         bullet.y = this.node.y + this.node.height + 50;
     }
@@ -93,11 +99,12 @@ export default class Fighter extends cc.Component {
     onGameOver () {
         cc.audioEngine.playEffect(this.dieEffect, false);
         
-        this.unschedule(this.onAircraftBullet);
+        this.unschedule(this.fnFire);
 
         const animation: cc.Animation = this.getComponent(cc.Animation);
         animation.play();
         animation.on("finished", function () {
+            DataCenter.score = 0;
             cc.audioEngine.stopMusic();
             cc.director.loadScene("MainMenu");
         }, this);

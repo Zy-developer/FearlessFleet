@@ -37,9 +37,9 @@ export default class MainMenu extends cc.Component {
         // cc.log("--- MainMenu.start() ---");
         cc.audioEngine.playMusic(this.bgAudio, true);
         // 绑定按钮事件.
-        this.rushLevelButton.node.on(cc.Node.EventType.TOUCH_END, this.onRushLevelAction, this);
-        this.helpButton.node.on(cc.Node.EventType.TOUCH_END, this.onHelpAction, this);
-        this.settingButton.node.on(cc.Node.EventType.TOUCH_END, this.onSettingAction, this);
+        // this.rushLevelButton.node.on(cc.Node.EventType.TOUCH_END, this.onRushLevelAction, this);
+        // this.helpButton.node.on(cc.Node.EventType.TOUCH_END, this.onHelpAction, this);
+        // this.settingButton.node.on(cc.Node.EventType.TOUCH_END, this.onSettingAction, this);
     }
     
     onRushLevelAction () {
