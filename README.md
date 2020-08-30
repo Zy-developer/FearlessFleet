@@ -1,8 +1,8 @@
 # FearlessFleet
 
-[![Version](https://img.shields.io/badge/CocosCreator-v2.0.10-FF69B4.svg?style=plastic)](#)
+[![Version](https://img.shields.io/badge/Cocos_Creator-v2.0.10-FF69B4.svg?style=plastic)](#)
 [![Languages](https://img.shields.io/badge/language-TypeScript-FF69B4.svg?style=plastic)](#)
-[![License](https://img.shields.io/cocoapods/l/ZYInfiniteLoopView.svg?style=flat)](http://cocoapods.org/pods/ZYInfiniteLoopView)
+[![License](https://img.shields.io/badge/License-MIT-FF69B4.svg?style=plastic)](#)
 
 #### 介绍.
 
