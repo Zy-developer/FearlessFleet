@@ -12,7 +12,7 @@
 
 - 学习视频: **[视频教程](https://docs.cocos.com/creator/manual/zh/video-tutorial/index.html)**.
 
-- 学习进度: 已完成.
+- 学习进度: **已完成**.
 
 #### Creator 版本.
 
